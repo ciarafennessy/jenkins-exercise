@@ -11,13 +11,13 @@ pipeline {
     }
     stage('Configure kubectl') {
       steps {
-        sh "aws eks --region eu-west-2 update-kubeconfig --name exerciseCluster"
+        sh "aws eks --region eu-west-2 update-kubeconfig --name Cluster1"
       }
     }
     stage('Deploy manifests') {
       steps {
-        sh "kubectl apply -f back.yml"
-        sh "kubectl apply -f front.yml"
+        sh "kubectl apply -f backend.yml"
+        sh "kubectl apply -f frontend.yml"
         sh "kubectl get services"
       }
     }
