@@ -18,8 +18,8 @@ pipeline {
     }
     stage('Deploy manifests') {
       steps {
-        sh "kubectl apply -f backend.yml"
-        sh "kubectl apply -f frontend.yml"
+        sh "kubectl apply -f backend.yaml"
+        sh "kubectl apply -f frontend.yaml"
         sh "kubectl get services"
       }
     }
